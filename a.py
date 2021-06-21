@@ -25,5 +25,5 @@ async def main():
         await run()
         print(i)
     await run_cmd("git push")
-    execvp("python3", ["python3", "a.py"])
+    #execvp("python3", ["python3", "a.py"])
 asyncio.run(main())
