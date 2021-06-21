@@ -16,7 +16,7 @@ async def run():
 async def main():
     i = 0
     for _ in range(100000000000):
-        for __ in range(1000):
+        for __ in range(10000):
             i += 1
             await run()
             print(i)
