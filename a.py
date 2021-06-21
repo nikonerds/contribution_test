@@ -5,7 +5,11 @@ from random import choice
 a = [x for x in range(1000)]
 
 async def run_cmd(cmd):
-    proc = await asyncio.create_subprocess_shell(cmd)
+    proc = await asyncio.create_subprocess_shell(
+            cmd,
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.PIPE
+            )
     await proc.communicate()
 
 async def run():
@@ -16,7 +20,7 @@ async def run():
 async def main():
     i = 0
     for _ in range(100000000000):
-        for __ in range(10000):
+        for __ in range(5000):
             i += 1
             await run()
             print(i)
