@@ -1,6 +1,7 @@
 import asyncio
 import aiofiles
 from random import choice
+from os import execvp
 
 a = [x for x in range(1000)]
 
@@ -19,11 +20,10 @@ async def run():
 
 async def main():
     i = 0
-    for _ in range(100000000000):
-        for __ in range(5000):
-            i += 1
-            await run()
-            print(i)
-        await run_cmd("git push")
-
+    for __ in range(1000):
+        i += 1
+        await run()
+        print(i)
+    await run_cmd("git push")
+    execvp("python3", ["python3", "a.py"])
 asyncio.run(main())
