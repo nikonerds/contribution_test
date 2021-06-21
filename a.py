@@ -15,4 +15,4 @@ async def main():
         tasks = [run() for _ in range(100)]
         await asyncio.gather(*tasks)
 
-asyncio.run(run())
+asyncio.run(main())
