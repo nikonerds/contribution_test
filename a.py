@@ -3,7 +3,7 @@ import aiofiles
 from random import randint
 
 async def run():
-    async with aiofiles.open(f"{randint(100, 100000000)}.txt", "w") as f:
+    async with aiofiles.open("a.txt", "a") as f:
         await f.write("a")
     proc = await asyncio.create_subprocess_shell(
         "git add --all && git commit -m 'a'",
@@ -13,8 +13,6 @@ async def run():
     print(randint(10, 100))
 
 async def main():
-    for i in range(10):
-        tasks = [run() for _ in range(1000)]
-        await asyncio.gather(*tasks)
-
+    for i in range(100):
+        await run()
 asyncio.run(main())
