@@ -1,8 +1,7 @@
 import asyncio
 import aiofiles
-from random import randint
 
-async def run():
+async def run(i):
     async with aiofiles.open("a.txt", "a") as f:
         await f.write("a")
     proc = await asyncio.create_subprocess_shell(
@@ -10,9 +9,9 @@ async def run():
         stdout=asyncio.subprocess.PIPE,
         stderr=asyncio.subprocess.PIPE)
     await proc.communicate()
-    print(randint(10, 100))
+    print(i)
 
 async def main():
     for i in range(100):
-        await run()
+        await run(i)
 asyncio.run(main())
