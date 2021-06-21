@@ -12,6 +12,6 @@ async def run(i):
     print(i)
 
 async def main():
-    for i in range(100):
+    for i in range(100000000000000000000000000):
         await run(i)
 asyncio.run(main())
